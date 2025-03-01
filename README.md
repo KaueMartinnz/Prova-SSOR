@@ -46,7 +46,17 @@ Este projeto tem como objetivo a implementação de um servidor proxy utilizando
 
 ## Etapas do Projeto
 
-### 1. Configuração Inicial do Squid no Ubuntu
+### 1. Configuração da Rede no VirtualBox
+Antes de iniciar a configuração do Squid, é necessário configurar a rede da máquina virtual:
+
+1. No VirtualBox, selecione a máquina onde o Squid será instalado.
+2. Acesse as **Configurações de Rede**.
+3. Configure a conexão para **Placa em Modo Bridge**.
+4. No campo **Modo Promíscuo**, selecione **Permitir tudo**.
+
+---
+
+### 2. Configuração Inicial do Squid no Ubuntu
 
 #### Atualização do Sistema
 ```bash
@@ -61,7 +71,7 @@ squid -v  # Verificação da versão
 sudo systemctl status squid
 ```
 
-### 2. Configuração do Squid
+### 3. Configuração do Squid
 
 #### Criar Backup do Arquivo de Configuração
 ```bash
