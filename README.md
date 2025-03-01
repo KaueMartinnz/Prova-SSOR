@@ -69,11 +69,11 @@ sudo cp /etc/squid/squid.conf /etc/squid/squid.conf.bkp
 ```
 
 #### Definição de ACLs para Bloqueio de Sites
-Edite o arquivo de configuração do Squid:
+Edite o arquivo de configuração do Squid e adicione os comandos no final do arquivo:
 ```bash
 sudo nano /etc/squid/squid.conf
 ```
-No final do arquivo adicione os sites a serem bloqueados:
+Adicione os sites a serem bloqueados:
 ```bash
 acl sites_bloqueados dstdomain .facebook.com .instagram.com .tiktok.com
 http_access deny sites_bloqueados
