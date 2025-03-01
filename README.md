@@ -17,16 +17,6 @@ Este projeto tem como objetivo a implementação de um servidor proxy utilizando
 
 ---
 
-## Tarefas
-
-- [x] Definir os objetivos do projeto
-- [x] Definir o número de máquinas e versão do sistema operacional
-- [x] Definir quais sites serão bloqueados e quais horários permitidos
-- [x] Configuração inicial do Squid no Ubuntu
-- [x] Implementação das regras de bloqueio
-- [x] Testes
-- [x] Documentação do passo a passo
-
 ---
 
 ## Requisitos
@@ -83,7 +73,7 @@ Edite o arquivo de configuração do Squid:
 ```bash
 sudo nano /etc/squid/squid.conf
 ```
-Adicione os sites a serem bloqueados:
+No final do arquivo adicione os sites a serem bloqueados:
 ```bash
 acl sites_bloqueados dstdomain .facebook.com .instagram.com .tiktok.com
 http_access deny sites_bloqueados
