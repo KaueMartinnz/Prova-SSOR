@@ -1,5 +1,3 @@
-# Prova-SSOR
-Relatório da prova 
 # Projeto SSOR - Configuração de Proxy Squid em Empresas de TI
 
 ## Universidade Federal do Ceará  
@@ -93,6 +91,31 @@ http_access allow sites_bloqueados horario_permitido
 http_access deny sites_bloqueados
 ```
 
+#### Passo 6: Configurar o IP no Squid
+Pesquise a linha `http_port 3128` no arquivo de configuração:
+```bash
+sudo nano /etc/squid/squid.conf
+```
+Use `Ctrl + W` para buscar a linha:
+```bash
+http_port 3128
+```
+Edite essa linha para incluir o IP da sua rede local, por exemplo:
+```bash
+http_port 192.168.0.105:3128
+```
+
+#### Passo 7: Remover Restrição de Acesso Global
+Pesquise a linha `http_access deny all` no arquivo de configuração:
+```bash
+sudo nano /etc/squid/squid.conf
+```
+Use `Ctrl + W` para localizar:
+```bash
+http_access deny all
+```
+Apague essa linha para permitir o funcionamento correto do proxy.
+
 #### Aplicar as Mudanças e Reiniciar o Squid
 ```bash
 sudo systemctl restart squid
@@ -123,7 +146,7 @@ sudo systemctl status squid
 
 ## Resultados
 
-Os testes foram realizados em máquinas virtuais e físicas.
+Os testes foram realizados em máquinas virtuais e físicas. 
 
 - Ao acessar sites bloqueados, o navegador retorna a mensagem: **"O servidor proxy está recusando conexões"**.
 - Ao acessar sites não bloqueados, a navegação ocorre normalmente.
@@ -138,3 +161,4 @@ Este projeto demonstrou a implementação de um servidor proxy Squid para contro
 O passo a passo apresentado pode ser utilizado para configurar servidores Squid em diferentes ambientes, garantindo segurança e controle de navegação em redes empresariais.
 
 **Autores:** Antônio Kauê e Natércia Sousa
+
